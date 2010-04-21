@@ -12,6 +12,10 @@ before do
   @hdb.open('sensordata.tch', HDB::OWRITER|HDB::OCREAT)
 end
 
+after do
+  @hdb.close
+end
+
 get '/' do
   erb %{
     <h1>sensor-storage API</h1>

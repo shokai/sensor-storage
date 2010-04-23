@@ -18,27 +18,7 @@ after do
 end
 
 get '/' do
-  erb %{
-    <h1>sensor-storage API</h1>
-    <ul>
-      <li>get
-        <ul>
-          <li><a href="/keys">list of keys</a></li>
-          <li>/(key) get value</li>
-        </ul>
-      </li>
-      <li>post
-        <ul>
-          <li>/ post value</li>
-        </ul>
-      </li>
-      <li>delete
-        <ul>
-          <li>/(key) delete value</li>
-        </ul>
-      </li>
-    </ul>
-  }
+  redirect '/readme'
 end
 
 get '/keys' do

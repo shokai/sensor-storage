@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>sensor-storage API</title>
+</head>
+
+<body>
+<h1>sensor-storage API</h1>
+<ul>
+  <li>get
+    <ul>
+      <li><a href="/keys">list of keys</a></li>
+      <li>/(key) get value</li>
+    </ul>
+  </li>
+  <li>post
+    <ul>
+      <li>/ post value</li>
+    </ul>
+  </li>
+  <li>delete
+    <ul>
+      <li>/(key) delete value</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

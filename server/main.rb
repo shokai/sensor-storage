@@ -18,7 +18,7 @@ after do
 end
 
 get '/' do
-  redirect '/readme'
+  redirect './readme'
 end
 
 get '/keys' do

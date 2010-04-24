@@ -9,7 +9,8 @@
   <li>get
     <ul>
       <li><a href="./(key)">/(key)</a> get value</li>
-      <li><a href="./keys">/keys</a> list of keys</li>
+      <li><a href="./keys">/keys</a> list of keys (up to 10000 keys)</li>
+      <li><a href="./count">/count</a> number of keys</li>
       <li><a href="./last">/last</a> get last value</li>
       <li><a href="./recent">/recent</a> get recent 10 values</li>
       <li><a href="./recent/3">/recent/3</a> recent (num) values</li>

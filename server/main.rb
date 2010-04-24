@@ -26,9 +26,17 @@ get '/keys' do
   @hdb.iterinit
   while key = @hdb.iternext do
     keys.push(key)
+    break if keys.size >= 10000
   end
   erb %{
     #{keys.to_json}
+  }
+end
+
+get '/count' do
+  result = {"count", @hdb.rnum}
+  erb %{
+    #{result.to_json}
   }
 end
 

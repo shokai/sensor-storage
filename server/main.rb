@@ -32,9 +32,34 @@ get '/keys' do
   }
 end
 
-get '/:tc_key' do
+get '/last' do
+  key = @hdb.keys.last
+  result = {key, @hdb[key]}
   erb %{
-    #{@hdb.get(params[:tc_key])}
+    #{result.to_json}
+  }
+end
+
+get '/recent' do
+  @hdb.keys.reverse[0...10]
+  result = @hdb.keys.reverse[0...10].map{|k| {k, @hdb[k]} }
+  erb %{
+    #{result.to_json}
+  }
+end
+
+get '/recent/:num' do
+  result = @hdb.keys.reverse[0...params[:num].to_i].map{|k| {k, @hdb[k]}}
+  erb %{
+    #{result.to_json}
+  }
+end
+
+get '/:tc_key' do
+  key = params[:tc_key]
+  result = {key, @hdb[key]}
+  erb %{
+    #{result.to_json}
   }
 end
 

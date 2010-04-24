@@ -8,20 +8,25 @@
 <ul>
   <li>get
     <ul>
-      <li><a href="/keys">list of keys</a></li>
-      <li>/(key) get value</li>
+      <li><a href="/keys">/keys</a> list of keys</li>
+      <li><a href="/(key)">/(key)</a> get value</li>
+      <li><a href="/last">/last</a> get last value</li>
+      <li><a href="/recent">/recent</a> get recent 10 values</li>
+      <li><a href="/recent/3">/recent/3</a> recent (num) values</li>
     </ul>
   </li>
   <li>post
     <ul>
-      <li>/ post value</li>
+      <li><a href="/">/</a> post value</li>
     </ul>
   </li>
   <li>delete
     <ul>
-      <li>/(key) delete value</li>
+      <li><a href="/(key)">/(key)</a> delete value</li>
     </ul>
   </li>
 </ul>
+<hr />
+<a href="http://github.com/shokai/sensor-storage">github.com/shokai/sensor-storage</a>
 </body>
 </html>

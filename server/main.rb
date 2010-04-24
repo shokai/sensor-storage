@@ -56,7 +56,8 @@ get '/recent' do
 end
 
 get '/recent/:num' do
-  result = @hdb.keys.reverse[0...params[:num].to_i].map{|k| {k, @hdb[k]}}
+  num = [params[:num].to_i, 1000].min
+  result = @hdb.keys.reverse[0...num].map{|k| {k, @hdb[k]}}
   erb %{
     #{result.to_json}
   }

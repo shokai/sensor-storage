@@ -41,7 +41,6 @@ get '/last' do
 end
 
 get '/recent' do
-  @hdb.keys.reverse[0...10]
   result = @hdb.keys.reverse[0...10].map{|k| {k, @hdb[k]} }
   erb %{
     #{result.to_json}
@@ -68,14 +67,15 @@ post '/' do
   key = "#{now.to_i}_#{now.usec}"
   @hdb.put(key, params.to_json)
   erb %{
-    #{key}
+    #{{key, @hdb[key]}.to_json}
   }
 end
 
 delete '/:tc_key' do
-  v = @hdb.get(params[:tc_key])
+key = params[:tc_key]
+  v = @hdb[params[:tc_key]]
   @hdb.out(params[:tc_key])
   erb %{
-    #{v}
+    #{{key,v}.to_json}
   }
 end

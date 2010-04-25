@@ -26,6 +26,11 @@
       <li><a href="./(key)">/(key)</a> delete value</li>
     </ul>
   </li>
+  <li>create your DB
+    <ul>
+      <li><a href="./string/">/string/</a> use get, post and delete</li>
+    </ul>
+  </li>
 </ul>
 <hr />
 <a href="http://github.com/shokai/sensor-storage">github.com/shokai/sensor-storage</a>

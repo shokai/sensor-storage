@@ -22,15 +22,8 @@ get '/' do
 end
 
 get '/keys' do
-  keys = Array.new
-  @hdb.iterinit
-  while key = @hdb.iternext do
-    keys.push(key)
-    break if keys.size >= 10000
-  end
-  erb %{
-    #{keys.to_json}
-  }
+  keys = @hdb.keys.reverse[0...10000]
+  keys.to_json
 end
 
 get '/count' do

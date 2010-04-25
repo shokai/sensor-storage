@@ -39,7 +39,7 @@ get '/dbs' do
     tmp.to_s + "/"
   }.uniq.delete_if{|i|
     i =~ /\/\//
-  }.to_json
+  }.sort.to_json
 end
 
 get '*/count' do

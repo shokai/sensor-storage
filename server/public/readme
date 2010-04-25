@@ -14,6 +14,7 @@
       <li><a href="./last">/last</a> get last value</li>
       <li><a href="./recent">/recent</a> get recent 10 values</li>
       <li><a href="./recent/3">/recent/3</a> recent (num) values</li>
+      <li><a href="./dbs">/dbs</a> list of DBs</li>
     </ul>
   </li>
   <li>post

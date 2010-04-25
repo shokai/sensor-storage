@@ -1,8 +1,9 @@
 store sensor data via HTTP for mbed microcontroller
 
 
-ruby server/main.rb -p 4567
+ruby main.rb -p 4567
 
 or
 
-shotgun server/main.rb -p 4567 -s webrick
+thin start --config thin.yml
+

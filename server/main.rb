@@ -63,6 +63,7 @@ post '*/' do
   db_open(params[:splat])
   now = Time.now
   key = "#{now.to_i}_#{now.usec}"
+  params.delete(:splat.to_s)
   @hdb.put(key, params.to_json)
   {key, @hdb[key]}.to_json
 end

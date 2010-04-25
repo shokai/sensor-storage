@@ -31,6 +31,17 @@ get '*/keys' do
   @hdb.keys.reverse[0...10000].to_json
 end
 
+get '/dbs' do
+  Dir::glob("#{@@dbdir}/*.tch").map{|i|
+    name = i.to_s.scan(/.*\/(.+)\.tch/).first.to_s.gsub(/_/,'/')
+    tmp = name.split(//u)
+    tmp.shift
+    tmp.to_s + "/"
+  }.uniq.delete_if{|i|
+    i =~ /\/\//
+  }.to_json
+end
+
 get '*/count' do
   db_open(params[:splat])
   {"count", @hdb.rnum}.to_json

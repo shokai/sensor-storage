@@ -27,57 +27,38 @@ get '/keys' do
 end
 
 get '/count' do
-  result = {"count", @hdb.rnum}
-  erb %{
-    #{result.to_json}
-  }
+  {"count", @hdb.rnum}.to_json
 end
 
 get '/last' do
   key = @hdb.keys.last
-  result = {key, @hdb[key]}
-  erb %{
-    #{result.to_json}
-  }
+  {key, @hdb[key]}.to_json
 end
 
 get '/recent' do
-  result = @hdb.keys.reverse[0...10].map{|k| {k, @hdb[k]} }
-  erb %{
-    #{result.to_json}
-  }
+  @hdb.keys.reverse[0...10].map{|k| {k, @hdb[k]} }.to_json
 end
 
 get '/recent/:num' do
   num = [params[:num].to_i, 1000].min
-  result = @hdb.keys.reverse[0...num].map{|k| {k, @hdb[k]}}
-  erb %{
-    #{result.to_json}
-  }
+  @hdb.keys.reverse[0...num].map{|k| {k, @hdb[k]}}.to_json
 end
 
 get '/:tc_key' do
   key = params[:tc_key]
-  result = {key, @hdb[key]}
-  erb %{
-    #{result.to_json}
-  }
+  {key, @hdb[key]}.to_json
 end
 
 post '/' do
   now = Time.now
   key = "#{now.to_i}_#{now.usec}"
   @hdb.put(key, params.to_json)
-  erb %{
-    #{{key, @hdb[key]}.to_json}
-  }
+  {key, @hdb[key]}.to_json
 end
 
 delete '/:tc_key' do
 key = params[:tc_key]
   v = @hdb[params[:tc_key]]
   @hdb.out(params[:tc_key])
-  erb %{
-    #{{key,v}.to_json}
-  }
+  {key,v}.to_json
 end

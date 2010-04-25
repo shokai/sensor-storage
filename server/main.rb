@@ -14,7 +14,7 @@ def db_open(dbname='/')
   dbname = dbname.to_s.gsub(/\//, '_')
   @hdb = HDB.new
   Dir.mkdir(@@dbdir) if !File.exists?(@@dbdir)
-  @hdb.open("#{@@dbdir}/#{dbname}.tch", HDB::OWRITER|HDB::OCREAT)  
+  @hdb.open("#{@@dbdir}/_#{dbname}.tch", HDB::OWRITER|HDB::OCREAT)  
 end
 
 after do

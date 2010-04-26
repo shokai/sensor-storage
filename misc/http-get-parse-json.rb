@@ -13,7 +13,7 @@ first, params = parser.parse(ARGV)
 
 if !parser.has_params([:host, :path])
   puts parser.help
-  puts 'e.g. ruby http-get -h localhost -p /path/to/app'
+  puts 'e.g. ruby http-get-parse-json.rb -h localhost -p /path/to/app'
   exit 1
 end
 

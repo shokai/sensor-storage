@@ -21,9 +21,8 @@ after do
   @hdb.close if @hdb
 end
 
-get '*/' do
-  path = "../" * params[:splat].first.count('/')
-  redirect "#{path}./readme"
+get '/' do
+  erb :index
 end
 
 get '*/keys' do

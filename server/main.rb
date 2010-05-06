@@ -5,6 +5,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'rack'
 require 'json'
+require 'erb'
 require 'tokyocabinet'
 include TokyoCabinet
 
